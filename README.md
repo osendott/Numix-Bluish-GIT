@@ -1,13 +1,10 @@
 # Numix-Bluish-GIT
 Numix-Bluish Gnome theme to be updated for 3.16
 
-=========
-Changelog
-=========
-
-23 April 2015
--------------
-Initial upload of files to GitHub for editing. The uploaded files
+========
+About
+========
+The uploaded files
 currently look great on 3.14, not so much on 3.16. Anyone who
 feels like helping, by all means, clone, edit, and push :)
 
@@ -20,3 +17,10 @@ Numix-Bluish-3.14 folder contains the old files for Numix-Bluish 3.14
 
 I'm also thinking that at some point, I'll update the window controls
 to be round like those in Evo-Pop, but one step at a time I guess.
+=========
+Changelog
+=========
+
+23 April 2015
+-------------
+Initial upload of files to GitHub for editing. 
