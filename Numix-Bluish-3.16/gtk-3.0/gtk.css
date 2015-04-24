@@ -4,18 +4,18 @@
 @define-color desktop_item_text_shadow alpha(black, 0.8);
 
 /* default color scheme */
-@define-color bg_color #dedede;
-@define-color fg_color #555555;
-@define-color base_color #f9f9f9;
-@define-color text_color #333333;
-@define-color selected_bg_color #d64937;
-@define-color selected_fg_color #f9f9f9;
-@define-color tooltip_bg_color #2d2d2d;
-@define-color tooltip_fg_color #dcdcdc;
+@define-color bg_color #1c1c23;
+@define-color fg_color #96bec8;
+@define-color base_color #1c1c23;
+@define-color text_color #9bbbc6;
+@define-color selected_bg_color #1e828c;
+@define-color selected_fg_color #ffffff;
+@define-color tooltip_bg_color #3a3a3a;
+@define-color tooltip_fg_color #ebebeb;
 
-/* dark color scheme */
-@define-color dark_bg_color #2d2d2d;
-@define-color dark_fg_color #dcdcdc;
+/*dark color scheme*/
+@define-color dark_bg_color #1c1c23;
+@define-color dark_fg_color #96bec8;
 
 /* colormap actually used by the theme, to be overridden in other css files */
 @define-color theme_bg_color @bg_color;
@@ -48,18 +48,18 @@
 /* widget colors */
 @define-color titlebar_bg_color @dark_bg_color;
 @define-color titlebar_fg_color @dark_fg_color;
-@define-color menubar_bg_color @dark_bg_color;
+@define-color menubar_bg_color #323246;
 @define-color menubar_fg_color @dark_fg_color;
 @define-color toolbar_bg_color @theme_bg_color;
 @define-color toolbar_fg_color @theme_fg_color;
-@define-color menu_bg_color @dark_bg_color;
+@define-color menu_bg_color #323246;
 @define-color menu_fg_color @dark_fg_color;
 @define-color panel_bg_color @dark_bg_color;
 @define-color panel_fg_color @dark_fg_color;
 
 /* osd */
 @define-color osd_base @dark_bg_color;
-@define-color osd_fg @dark_fg_color;
+@define-color osd_fg #9bbbc6;
 @define-color osd_bg alpha(@osd_base, 0.8);
 
 /* lightdm greeter colors */
@@ -67,11 +67,11 @@
 @define-color lightdm_fg_color @dark_fg_color;
 
 /* window manager colors */
-@define-color wm_bg @titlebar_bg_color;
-@define-color wm_border_focused mix(shade(@titlebar_bg_color, 0.7), @titlebar_fg_color, 0.21);
-@define-color wm_border_unfocused mix(shade(@titlebar_bg_color, 0.7), @titlebar_fg_color, 0.12);
-@define-color wm_title_focused mix(@titlebar_fg_color, @titlebar_bg_color, 0.1);
-@define-color wm_title_unfocused mix(@titlebar_fg_color, @titlebar_bg_color, 0.4);
+@define-color wm_bg #323246;
+@define-color wm_border_focused #484848;
+@define-color wm_border_unfocused #393939;
+@define-color wm_title_focused 9bbbc6;
+@define-color wm_title_unfocused 6e8ca0;
 @define-color wm_icons_focused mix(@titlebar_fg_color, @titlebar_bg_color, 0.1);
 @define-color wm_icons_focused_prelight @selected_bg_color;
 @define-color wm_icons_focused_pressed shade(@selected_bg_color, 0.8);
