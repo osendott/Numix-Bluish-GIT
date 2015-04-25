@@ -29,3 +29,9 @@ Initial upload of files to GitHub for editing.
 24 April 2015
 -------------
 Updated GTK.css 
+
+25 April 2015
+-------------
+Testing version released. Download Numix-Bluish-3.16-testing.tar.gz from GitHub
+extract to ~/.themes directory, use Tweak Tool to set GTK theme to Numix-Bluish
+and shell-theme to Evo-Pop
