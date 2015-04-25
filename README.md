@@ -12,7 +12,8 @@ feels like helping, by all means, clone, edit, and push :)
 
 Numix-Bluish-3.16 folder contains an original version of Numix-theme
 updated for 3.16, we'll just change the color codes in this theme
-to reflect those in Numix-Bluish-3.14
+to reflect those in Numix-Bluish-3.14. Also plan on chaning the window controls
+to ones more like Evo-Pop's or Yosembiance (round)
 
 Numix-Bluish-3.14 folder contains the old files for Numix-Bluish 3.14
 
