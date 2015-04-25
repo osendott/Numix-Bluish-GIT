@@ -36,5 +36,5 @@ Testing version released. Download Numix-Bluish-3.16-testing.tar.gz from GitHub
 extract to ~/.themes directory, use Tweak Tool to set GTK theme to Numix-Bluish
 and shell-theme to Evo-Pop
 
-Added place-holder files for light version of theme 
+Added place-holder files for light version of theme.
 Edited background for light-theme, don't think I like it. This is my reminder to myself to change it.
