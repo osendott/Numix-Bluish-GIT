@@ -25,3 +25,7 @@ Changelog
 23 April 2015
 -------------
 Initial upload of files to GitHub for editing. 
+
+24 April 2015
+-------------
+Updated GTK.css 
