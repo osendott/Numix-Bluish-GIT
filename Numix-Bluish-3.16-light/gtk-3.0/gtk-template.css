@@ -4,14 +4,14 @@
 @define-color desktop_item_text_shadow alpha(black, 0.8);
 
 /* default color scheme */
-@define-color bg_color #ffffff;
-@define-color fg_color #ff0000;
-@define-color base_color #fff765;
-@define-color text_color #ff8787; /*font color*/
-@define-color selected_bg_color #003433; /*color around selection*/
-@define-color selected_fg_color #000234; /*text color for selection*/
-@define-color tooltip_bg_color #F90C94; /*background of tooltips*/
-@define-color tooltip_fg_color #665678; /*text color of tooltips*/
+@define-color bg_color #215869; /*left pane BG color*/
+@define-color fg_color #faffff; /*font color in left pane*/
+@define-color base_color #faffff; /*background color where folders are in nautilus*/
+@define-color text_color #faffff; /*font color*/
+@define-color selected_bg_color #3da2c0; /*color around selection*/
+@define-color selected_fg_color #faffff; /*text color for selection*/
+@define-color tooltip_bg_color #3da2c0; /*background of tooltips*/
+@define-color tooltip_fg_color #faffff; /*text color of tooltips*/
 
 /*dark color scheme*/
 @define-color dark_bg_color #1c1c23;
@@ -31,47 +31,47 @@
 @define-color light_shadow #fff;
 @define-color dark_shadow #000;
 
-/* misc colors used by gtk+ */
-@define-color info_fg_color rgb (58, 135, 173);
-@define-color info_bg_color rgb (217, 237, 247);
+/* misc colors used by gtk+ *//*should probably set these to match above*/
+@define-color info_fg_color rgb (173, 58, 120); /*dark pink*/
+@define-color info_bg_color rgb (6, 254, 286); /*green*/
 @define-color warning_fg_color rgb (192, 152, 83);
-@define-color warning_bg_color rgb (252, 248, 227);
-@define-color question_fg_color rgb (214, 73, 55);
-@define-color question_bg_color rgb (252, 229, 213);
-@define-color error_fg_color rgb (185, 74, 72);
-@define-color error_bg_color rgb (242, 222, 222);
-@define-color link_color #fc6f5d;
-@define-color success_color #53a93f;
-@define-color warning_color #f57900;
-@define-color error_color #cc0000;
+@define-color warning_bg_color rgb (254, 110, 6);/*orange*/
+@define-color question_fg_color rgb (6, 254, 40);/*light blue*/
+@define-color question_bg_color rgb (166, 6, 254);/*dark purple*/
+@define-color error_fg_color rgb (164, 172, 28);/*dark goldy-yellow*/
+@define-color error_bg_color rgb (180, 222, 233);/*pale-blue*/
+@define-color link_color #91F70B;/*neon-green*/
+@define-color success_color #AE0F09;/*dark-red*/
+@define-color warning_color #ffffff;/*white*/
+@define-color error_color #FF00AC;/*bright-pink*/
 
 /* widget colors */
 @define-color titlebar_bg_color @dark_bg_color;
 @define-color titlebar_fg_color @dark_fg_color;
-@define-color menubar_bg_color #323246;
+@define-color menubar_bg_color #D2FF00;/*bright-yellow*/
 @define-color menubar_fg_color @dark_fg_color;
 @define-color toolbar_bg_color @theme_bg_color;
 @define-color toolbar_fg_color @theme_fg_color;
-@define-color menu_bg_color #323246;
+@define-color menu_bg_color #00FFF3;/*right-click menu, lists, etc.*/
 @define-color menu_fg_color @dark_fg_color;
 @define-color panel_bg_color @dark_bg_color;
 @define-color panel_fg_color @dark_fg_color;
 
 /* osd */
 @define-color osd_base @dark_bg_color;
-@define-color osd_fg #9bbbc6;
+@define-color osd_fg #641F1B;/*maroon*/
 @define-color osd_bg alpha(@osd_base, 0.8);
 
 /* lightdm greeter colors */
 @define-color lightdm_bg_color @dark_bg_color;
 @define-color lightdm_fg_color @dark_fg_color;
 
-/* window manager colors */
-@define-color wm_bg #323246;
-@define-color wm_border_focused #484848;
-@define-color wm_border_unfocused #393939;
-@define-color wm_title_focused 9bbbc6;
-@define-color wm_title_unfocused 6e8ca0;
+/* window manager colors */ 
+@define-color wm_bg #A39B9A;/*greyish*/
+@define-color wm_border_focused #1E4F00;/*forest-green*/
+@define-color wm_border_unfocused #55D586;/*seafoam-green*/
+@define-color wm_title_focused #00425E;/*dark-slate-blue*/
+@define-color wm_title_unfocused #D5FB90;/*pale-yellow*/
 @define-color wm_icons_focused mix(@titlebar_fg_color, @titlebar_bg_color, 0.1);
 @define-color wm_icons_focused_prelight @selected_bg_color;
 @define-color wm_icons_focused_pressed shade(@selected_bg_color, 0.8);
