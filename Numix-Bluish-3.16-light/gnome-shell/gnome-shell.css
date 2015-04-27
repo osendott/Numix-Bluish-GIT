@@ -584,8 +584,8 @@ StScrollBar {
       height: 0;
       margin-left: 4px;
       margin-right: 4px; }
-
-    /*indicator for selection on top-bar*/
+    
+    /*here*/
     #panel .panel-button:hover {
       color: white;
       border-image: url("panel/panel-button-border-hover.svg") 2 2 2 2; }
