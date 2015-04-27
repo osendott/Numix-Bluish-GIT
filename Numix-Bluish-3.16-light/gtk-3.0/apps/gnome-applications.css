@@ -26,7 +26,7 @@ PanelApplet > GtkMenuBar.menubar,
 PanelApplet > GtkMenuBar.menubar.menuitem,
 PanelMenuBar.menubar,
 PanelMenuBar.menubar.menuitem {
-    -PanelMenuBar-icon-visible: true;
+    -Panelpanel-icon-visible: true;
 
     border-width: 0;
     background-color: @panel_bg_color;
@@ -76,10 +76,13 @@ PanelApplet .button:active:prelight {
 WnckPager, WnckTasklist {
     background-color: @panel_bg_color;
 }
-
 /************
  * nautilus *
  ************/
+.nautilus-canvas-item {
+    border-radius: 0px;
+}
+
 .nautilus-desktop.nautilus-canvas-item {
     color: white;
     text-shadow: 1px 1px black;
@@ -90,7 +93,7 @@ WnckPager, WnckTasklist {
 }
 
 .nautilus-desktop.nautilus-canvas-item:selected {
-    color: @theme_selected_fg_color;
+    color: @theme_base_color;
 }
 
 .nautilus-desktop.nautilus-canvas-item:active,
@@ -127,7 +130,7 @@ NautilusNotebook .frame {
     border-width: 0;
 }
 
-NautilusQueryEditor .search-bar.toolbar {
+NautilusQueryEditor .primary-toolbar.toolbar {
     border-top-width: 0;
     border-bottom-width: 0;
 }
@@ -146,7 +149,7 @@ NautilusQueryEditor .toolbar:nth-child(2) {
 }
 
 NautilusQueryEditor .toolbar:last-child,
-NautilusQueryEditor .search-bar.toolbar:only-child {
+NautilusQueryEditor .primary-toolbar.toolbar:only-child {
     border-bottom-width: 1px;
     border-bottom-color: shade(@toolbar_bg_color, 0.8);
 }
@@ -155,48 +158,97 @@ NautilusQueryEditor .search-bar.toolbar:only-child {
  * gnome terminal *
  ******************/
 VteTerminal {
-    background-color: @osd_base;
-    color: @osd_fg;
+    background-color: @theme_text_color;
+    color: @theme_bg_color;
 }
 
 TerminalWindow GtkNotebook.notebook {
-    border-right-width: 0;
-    border-bottom-width: 0;
-    border-left-width: 0;
+    border-color: shade(@theme_text_color, 0.7);
+    background-color: @theme_text_color;
+}
+
+TerminalWindow GtkNotebook.notebook tab,
+TerminalWindow GtkNotebook.notebook tab.top {
+    border-color: @theme_text_color;
+    border-style: solid;
+    border-width: 1px;
+    background-color: @theme_text_color;
+    background-image: none;
+    border-top: 1px solid shade(@theme_text_color, 0.78);
+}
+
+TerminalWindow GtkNotebook.notebook tab:first-child.top {
+    border-left: 1px solid shade(@theme_text_color, 0.78);     
+}
+
+TerminalWindow GtkNotebook.notebook tab:first-child.top:active {
+    box-shadow: inset 0 -2px shade (@theme_selected_fg_color, 1.05),
+                inset 1px 0 shade(@theme_text_color, 0.87),
+                inset -1px 0 shade(@theme_text_color, 0.87);
+}
+
+TerminalWindow GtkNotebook.notebook tab:active,
+TerminalWindow GtkNotebook.notebook tab.top:active {
+    border-color: @theme_text_color;
+    background-color: @theme_text_color;
+    background-image: none;
+    color: transparent;
+    border: none;
+    
+    box-shadow: inset 0 -2px shade (@theme_selected_fg_color, 1.05),
+                inset 1px 0 shade(@theme_text_color, 0.87),
+                inset -1px 0 shade(@theme_text_color, 0.87);
+}
+
+TerminalWindow GtkNotebook.notebook .active-page,
+TerminalWindow GtkNotebook.notebook tab .active-page GtkLabel {
+    color: shade (@theme_selected_fg_color, 1.25);
+}
+
+TerminalWindow GtkNotebook.notebook .prelight-page,
+TerminalWindow GtkNotebook.notebook .prelight-page GtkLabel {
+    color: shade(@theme_selected_fg_color, 1.25);
+}
+
+TerminalWindow GtkNotebook.notebook tab GtkLabel {
+    color: @theme_bg_color;
+}
+
+TerminalWindow GtkNotebook.notebook tab:hover {
+	background-color: shade(@theme_text_color, 0.92);
 }
 
 TerminalWindow .scrollbars-junction,
 TerminalWindow .scrollbar.trough {
-    background-color: @osd_base;
+    background-color: @theme_text_color;
+    border-color: @theme_text_color;
 }
 
 TerminalWindow .scrollbar.button,
 TerminalWindow .scrollbar.button:active,
 TerminalWindow .scrollbar.button:active:hover {
-    color: shade(@osd_base, 0.6);
+    color: shade(@theme_text_color, 1.25);
 }
 
 TerminalWindow .scrollbar.slider {
-    border-color: mix(shade(@osd_base, 0.87), @osd_fg, 0.21);
-    background-color: mix(@osd_base, @osd_fg, 0.21);
+    border-color: @theme_text_color;
+    background-color:shade(@theme_text_color, 0.8);
 }
 
 TerminalWindow .scrollbar.slider:hover,
 TerminalWindow .scrollbar.slider.vertical:hover {
-    border-color: mix(shade(@osd_base, 0.87), @osd_fg, 0.31);
-    background-color: mix(@osd_base, @osd_fg, 0.31);
+    background-color: shade(@theme_text_color, 0.76);
 }
 
 TerminalWindow .scrollbar.slider:active,
 TerminalWindow .scrollbar.slider.vertical:active {
-    border-color: shade(@theme_selected_bg_color, 0.9);
-    background-color: @theme_selected_bg_color;
+    background-color: @theme_selected_fg_color;
 }
 
 /*********
  * gedit *
  *********/
-GeditWindow .pane-separator,
+GeditWindow .pane-separator, 
 GeditWindow .pane-separator:hover {
     border-width: 0 1px 1px 1px;
     border-style: solid;
@@ -205,115 +257,62 @@ GeditWindow .pane-separator:hover {
     color: shade(@theme_bg_color, 0.8);
 }
 
-.gedit-document-panel {
-    background-color: @theme_bg_color;
-    color: mix(@theme_fg_color, @theme_bg_color, 0.1);
+GeditPanel.title GtkLabel {
+    padding: 4px 0;
 }
 
-.gedit-document-panel-group-row,
-.gedit-document-panel-group-row:hover {
-    border-top: 1px solid shade(@theme_bg_color, 0.9);
-    background-color: @theme_bg_color;
+GeditPanel.vertical .title {
+    padding: 4px 0 4px 3px;
+    border-style: none;
 }
 
-.gedit-document-panel-document-row:hover {
-    background-color: shade(@theme_bg_color, 1.05);
-}
-
-.gedit-document-panel-document-row:selected,
-.gedit-document-panel-document-row:selected:hover {
-    background-color: @theme_selected_bg_color;
-    color: @theme_selected_fg_color;
-}
-
-.gedit-document-panel .list-row {
-    padding: 4px;
-}
-
-.gedit-document-panel .list-row .button {
-    padding: 1px;
-    border-image: none;
-    border-radius: 2px;
-    border-style: solid;
-    border-color: transparent;
-    border-width: 1px;
+GeditPanel .toolbar {
+    border-style: none;
     background-color: transparent;
-    background-image: none;
-    color: transparent;
-    icon-shadow: none;
 }
 
-.gedit-document-panel .prelight-row .button  {
-    border-color: alpha(black, 0.1);
-    color: alpha(white, 0.8);
+GeditDocumentsPanel .view {
+    background-color: @theme_base_color;
 }
 
-.gedit-document-panel .list-row .button:hover,
-.gedit-document-panel .prelight-row .button:hover {
-    border-color: alpha(black, 0.1);
-    color: white;
+GeditPanel.vertical .notebook {
+    padding: 0;
+    border-width: 1px 0;
 }
 
-.gedit-document-panel .prelight-row .button:active {
-    border-color: alpha(black, 0.2);
-    background-color: alpha(black, 0.08);
-    color: white;
+GeditPanel.horizontal .notebook {
+    padding: 0;
+    border-width: 0 1px 1px 0;
 }
 
-.gedit-document-panel-dragged-row {
-    border: 1px solid alpha(black, 0.1);
-    background-color: alpha(black, 0.5);
-    color: white;
+GeditWindow .notebook {
+    border-width: 1px 0;
 }
 
-.gedit-document-panel-placeholder-row {
-    border: none;
-    background-color: alpha(black, 0.08);
-    transition: all 200ms ease-in;
+GeditPanel .notebook tab,
+GeditWindow .notebook tab {
+    border-width: 0;
 }
 
-GeditStatusbar {
-    border-top: 1px solid shade(@theme_bg_color, 0.8);
-}
-
-GeditStatusbar GeditSmallButton,
-GeditStatusMenuButton {
-    text-shadow: none;
-}
-
-GeditStatusbar GeditSmallButton.button,
-GeditStatusbar GeditSmallButton.button:hover,
-GeditStatusbar GeditSmallButton.button:active,
-GeditStatusbar GeditSmallButton.button:active:hover,
 GeditStatusMenuButton.button,
 GeditStatusMenuButton.button:hover,
 GeditStatusMenuButton.button:active,
 GeditStatusMenuButton.button:active:hover {
-    border-image: none;
+    padding: 1px 6px 2px 4px;
     border-style: solid;
     border-width: 0 1px;
     border-radius: 0;
-    padding: 1px 6px 2px 4px;
 }
 
-GeditStatusbar GeditSmallButton.button:hover,
-GeditStatusbar GeditSmallButton.button:active,
-GeditStatusbar GeditSmallButton.button:active:hover,
 GeditStatusMenuButton.button:hover,
 GeditStatusMenuButton.button:active,
 GeditStatusMenuButton.button:active:hover {
     border-color: shade(@theme_bg_color, 0.8);
 }
 
-GeditStatusbar GeditSmallButton.button:active,
-GeditStatusMenuButton.button:active {
-    background-color: shade(@theme_bg_color, 0.95);
-    color: @theme_fg_color;
-}
-
 GeditViewFrame .gedit-search-slider {
     padding: 4px;
-    border-radius: 0 0 2px 2px;
+    border-radius: 0 0 0px 0px;
     border-width: 0 1px 1px 1px;
     border-style: solid;
     border-color: shade(@theme_base_color, 0.8);
@@ -327,23 +326,20 @@ GeditViewFrame .gedit-search-slider .not-found {
 }
 
 GeditViewFrame .gedit-search-slider .not-found:selected {
-    background-color: @theme_selected_bg_color;
-    color: @theme_selected_fg_color;
+    background-color: @theme_selected_fg_color;
+    color: @theme_base_color;
 }
 
-GeditFileBrowserWidget .toolbar {
+GeditFileBrowserWidget .primary-toolbar.toolbar  {
     padding: 2px;
     border-top: none;
     background-color: @theme_bg_color;
     background-image: none;
 }
 
-.gedit-search-entry-occurrences-tag {
-    margin: 2px;
-    padding: 2px;
-    color: mix(@theme_text_color, @theme_base_color, 0.5);
+GdTaggedEntry *{
+	color: @theme_fg_color;
 }
-
 /***************
  * font-viewer *
  ***************/
@@ -356,14 +352,13 @@ SushiFontWidget {
  *************/
 GucharmapChartable {
     background-color: @theme_base_color;
-    color: @theme_text_color;
 }
 
 GucharmapChartable:active,
 GucharmapChartable:focus,
 GucharmapChartable:selected {
-    background-color: @theme_selected_bg_color;
-    color: @theme_selected_fg_color;
+    background-color: @theme_bg_color;
+    color: @theme_selected_bg_color;
 }
 
 /*************
@@ -382,15 +377,122 @@ EPreviewPane .entry {
     color: @theme_text_color;
 }
 
-/*******************
- * gnome-bluetooth *
- *******************/
-GtkEntry.entry.pin-entry {
-	font: regular 50;
-	padding-left: 25px;
-	padding-right: 25px;
+/*Gnome Control Center*/
+
+CcEditableEntry .button,
+UmEditableButton .button,
+UmEditableCombo .button {
+    border-style: solid;
+    border-width: 1px;
+    border-color: shade(@theme_bg_color, 1.0);
+    color: @theme_text_color;
 }
 
-GtkLabel.pin-label {
-	font: regular 50;
+CcEditableEntry .button:hover,
+UmEditableButton .button:hover,
+UmEditableCombo .button:hover {
+    transition: none;
+    border-style: solid;
+    border-width: 1px;
+    border-color: shade(@theme_bg_color, 0.9);
+    background-color: @theme_bg_color;
+    color: @theme_selected_fg_color;
 }
+
+/*Ubuntu Software Center*/
+.label-tile {
+    color: @theme_text_color;
+    background-color: transparent;
+}
+
+.category-tile {
+    color: @theme_text_color;
+    background-color: transparent;
+}
+
+#category-view .button {
+    color: @theme_fg_color;
+    background-color: transparent;
+}
+
+/*Gthumb*/
+
+GthToolbox .button,
+GthToolbox .button:focus {
+    color: @theme_text_color;
+    background-color: @theme_bg_color;
+    border-style: solid;
+    border-width: 1px;
+    border-color: alpha(@theme_fg_color, 0.25);
+}   
+
+GthToolbox .button:hover {
+    background-color: @theme_bg_color;
+    color: @theme_selected_fg_color;
+}
+
+
+GthToolbox .button:active {
+    background-color: @theme_bg_color;
+    color: shade(@theme_selected_fg_color, 0.87);
+}
+
+/****************
+ * File chooser *
+ ****************/
+
+GtkFileChooserWidget .action-bar {
+padding: 8px 6px;
+}
+ 
+GtkFileChooserWidget .path-bar .button {
+    background-color: @theme_bg_color;
+    border: 1px solid shade (@theme_bg_color, 0.8);
+    border-left: none;
+    color: @theme_fg_color;
+}
+
+GtkFileChooserWidget .path-bar .button:first-child,
+GtkFileChooserWidget .path-bar .button:first-child:active,
+GtkFileChooserWidget .path-bar .button:first-child:active:hover,
+GtkFileChooserWidget .path-bar .button:first-child:checked  {
+    border: 1px solid shade (@theme_bg_color, 0.8);
+    border-left: 1px solid shade (@theme_bg_color, 0.8);
+}
+
+GtkFileChooserWidget .path-bar .button:hover {
+    background-color: @theme_base_color;
+    color: shade(@theme_selected_fg_color, 1.04);
+}
+
+GtkFileChooserWidget .path-bar .button:active,
+GtkFileChooserWidget .path-bar .button:active:hover,
+GtkFileChooserWidget .path-bar .button:checked {
+    background-color: shade(@theme_bg_color, 0.95);
+    color: @theme_text_color;
+    border: 1px solid shade (@theme_bg_color, 0.8);
+    border-left: none;
+}
+
+/*********
+ * Totem *
+ *********/
+ 
+/*NEEDS FIXING*/
+ 
+BaconVideoWidget .toolbar .button {
+    box-shadow: none;
+    border: solid 1px shade(@theme_bg_color, 0.81);
+    border-left: none;
+}
+
+BaconVideoWidget .toolbar .button:insensitive {
+    background-color: transparent;
+}
+
+BaconVideoWidget .toolbar .button:first-child {
+    border: solid 1px shade(@theme_bg_color, 0.81);
+    box-shadow: none;
+}
+
+
