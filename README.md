@@ -38,3 +38,8 @@ and shell-theme to Evo-Pop
 
 Added place-holder files for light version of theme.
 Edited background for light-theme, don't think I like it. This is my reminder to myself to change it.
+
+27 April 2015
+-------------
+Change out EvoPop-Shell for new base to start work on Numix-Bluish-Shell theme
+(may switch back if I can get proper sourcefiles for evopop-shell)
