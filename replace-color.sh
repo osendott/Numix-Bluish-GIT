@@ -6,5 +6,5 @@
 #if I'm not mistaken, and I'm going from memory, the original Numix red color is #d64937
 #selected-blue color for theme #1e828c
 
-find . -type f -exec sed -i 's/#d64937/#1e828c/g' {} +
+find . -type f -exec sed -i 's/#1793D0/#1793D1/g' {} +
 

@@ -5,17 +5,9 @@ Numix-Bluish Gnome theme to be updated for 3.16
 About
 ========
 
-The uploaded files
-currently look great on 3.14, not so much on 3.16. Anyone who
-feels like helping, by all means, clone, edit, and push :)
-
-
-Numix-Bluish-3.16 folder contains an original version of Numix-theme
-updated for 3.16, we'll just change the color codes in this theme
-to reflect those in Numix-Bluish-3.14. Also plan on chaning the window controls
-to ones more like Evo-Pop's or Yosembiance (round)
-
-Numix-Bluish-3.14 folder contains the old files for Numix-Bluish 3.14
+Theme is currently being reworked, so it probably looks terrible.
+I'm replacing the shell-theme with an edited version of my Frost Shell
+and I'm recoloring GTK theme to flow better.
 
 
 =========
@@ -43,3 +35,8 @@ Edited background for light-theme, don't think I like it. This is my reminder to
 -------------
 Change out EvoPop-Shell for new base to start work on Numix-Bluish-Shell theme
 (may switch back if I can get proper sourcefiles for evopop-shell)
+
+07 May 2015
+-----------
+Removed previous shell theme, in the process of replacing with a modified Frost Shell
+Reworking light and dark GTK themes
